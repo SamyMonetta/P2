@@ -4,17 +4,12 @@
  */
 package com.portfolio.sam.Security.Controller;
 
-import com.portfolio.sam.Security.Dto.JwtDto;
-import com.portfolio.sam.Security.Dto.LoginUsuario;
-import com.portfolio.sam.Security.Dto.NuevoUsuario;
-import com.portfolio.sam.Security.Entity.Rol;
-import com.portfolio.sam.Security.Entity.Usuario;
-import com.portfolio.sam.Security.Enums.RolNombre;
-import com.portfolio.sam.Security.Service.RolService;
-import com.portfolio.sam.Security.jwt.JwtProvider;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.validation.Valid;
+
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +25,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.portfolio.sam.Security.Dto.JwtDto;
+import com.portfolio.sam.Security.Dto.LoginUsuario;
+import com.portfolio.sam.Security.Dto.NuevoUsuario;
+import com.portfolio.sam.Security.Entity.Rol;
+import com.portfolio.sam.Security.Entity.Usuario;
+import com.portfolio.sam.Security.Enums.RolNombre;
+import com.portfolio.sam.Security.Service.RolService;
+import com.portfolio.sam.Security.jwt.JwtProvider;
 
 @RestController
 @RequestMapping("/auth")
@@ -49,7 +53,7 @@ public class AuthController {
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario,BindingResult bindingResult){
         if (bindingResult.hasErrors())
-            return new ResponseEntity (new Mensaje ("Campos mal puestos o email inválido"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity (new Mensaje ("Campos mal puestos o email invï¿½lido"),HttpStatus.BAD_REQUEST);
         
         if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
             return new ResponseEntity (new Mensaje("Este nombre de usuario ya existe"),HttpStatus.BAD_REQUEST);

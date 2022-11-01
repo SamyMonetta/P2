@@ -17,7 +17,7 @@ public class UsuarioPrincipal implements UserDetails {
     private String nombreUsuario;
     private String email;
     private String password;
-    private Collection<? extends GrantedAuthority> authorities;
+    private Collection<? extends com.portfolio.sam.Security.Dto.GrantedAuthority> authorities;
 
     //Constructor
     public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {

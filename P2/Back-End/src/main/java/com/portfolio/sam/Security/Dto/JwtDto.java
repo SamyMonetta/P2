@@ -5,7 +5,6 @@
 package com.portfolio.sam.Security.Dto;
 
 import java.util.Collection;
-import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
