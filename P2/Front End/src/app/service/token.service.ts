@@ -36,7 +36,7 @@ roles: Array<string> = [];
     window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
   }
 
-  public getAuthorities(): String []{
+  public getAuthorities(): string []{
     this.roles = [];
     if (sessionStorage.getItem(AUTHORITIES_KEY)){
       JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)!).forEach((authority:any)=> {

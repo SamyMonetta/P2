@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginUsuario!: LoginUsuario;
   nombreUsuario!: string;
   password!: string;
-  roles: String [] = [];
+  roles: string [] = [];
   errMsj!: string;
 
   constructor(private tokenService: TokenService, private authService: AuthService, private router: Router){ } 
